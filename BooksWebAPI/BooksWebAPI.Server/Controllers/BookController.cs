@@ -28,10 +28,10 @@ namespace BooksWebAPI.Server.Controllers
         [Route("getbybookid/{id}")]
         public object GetByBookId(string id)
         {
-            var result = bookRepo.GetBookById(id);
-            if (result != null)
+            var em = bookRepo.GetBookById(id);
+            if (em != null)
             {
-                return result;
+                return em;
             }
             else
             {
@@ -40,12 +40,17 @@ namespace BooksWebAPI.Server.Controllers
                 
         }
 
-        //[HttpGet]
-        //[Route("getBooksByTitle/{title}")]
-        //public object GetByBookTitle(string title)
-        //{
+        [HttpGet]
+        [Route("getbybooktitle/{title}")]
+        public object GetByBookTitle(string title)
+        {
+            var em = bookRepo.GetBooksByTitleString(title);
 
-        //}
+            if (em.Count == 0)
+                return new HttpNotFoundResult("Sorry, but there are no books that match the title string...");
+            else
+                return em;
+        }
 
 
 
