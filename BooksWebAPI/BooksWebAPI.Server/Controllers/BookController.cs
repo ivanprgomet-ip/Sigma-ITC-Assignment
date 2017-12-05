@@ -13,5 +13,19 @@ namespace BooksWebAPI.Server.Controllers
         {
             return View();
         }
+
+        // search for book(s) by title
+            // shall find books where only a part of the title might be the search word
+
+        //public ActionResult GetByBookTitle(string title)
+        //{
+
+        //}
+
+        //public ActionResult GetByBookId(string id)
+        //{
+
+        //}
+
     }
 }
