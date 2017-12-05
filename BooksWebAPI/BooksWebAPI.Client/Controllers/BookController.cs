@@ -1,5 +1,6 @@
 ﻿using BooksWebAPI.Client.Helpers;
 using BooksWebAPI.Client.Interfaces;
+using BooksWebAPI.Client.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,21 +24,27 @@ namespace BooksWebAPI.Client.Controllers
             this.bookApiClient = bookApiClient;
         }
 
-        // GET: Book
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-
-        public Task<ActionResult> GetByTitle(string title)
+        [HttpPost]
+        public async Task<ActionResult> GetByTitle(string title)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ActionResult> GetById(string id)
+        [HttpPost]
+        public async Task<ActionResult> GetById(string id)
         {
-            throw new NotImplementedException();
+            var result = await bookApiClient.GetBookById(id);
+
+            if (result != null)
+                return View("Index", new List<BookVm> { result });
+
+            return View("Index");
         }
     }
 }
