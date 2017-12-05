@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BooksWebAPI.Server.Interfaces;
+using BooksWebAPI.Server.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +10,18 @@ namespace BooksWebAPI.Server.Controllers
 {
     public class BookController : Controller
     {
-        // GET: Book
+        private IBookRepository bookRepo;
+
+        public BookController():this(new BookRepository()) { }
+
+        public BookController(IBookRepository bookRepo)
+        {
+            if (bookRepo == null)
+                throw new ArgumentNullException(nameof(bookRepo));
+
+            this.bookRepo = bookRepo;
+        }
+
         public ActionResult Index()
         {
             return View();
