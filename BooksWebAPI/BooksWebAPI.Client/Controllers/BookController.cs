@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BooksWebAPI.Client.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +10,8 @@ namespace BooksWebAPI.Client.Controllers
 {
     public class BookController : Controller
     {
+        private IBookApiClient bookApiClient;
+
         // GET: Book
         public ActionResult Index()
         {
