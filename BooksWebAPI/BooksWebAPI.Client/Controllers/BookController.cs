@@ -1,4 +1,5 @@
-﻿using BooksWebAPI.Client.Interfaces;
+﻿using BooksWebAPI.Client.Helpers;
+using BooksWebAPI.Client.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,16 @@ namespace BooksWebAPI.Client.Controllers
     public class BookController : Controller
     {
         private IBookApiClient bookApiClient;
+
+        public BookController():this(new BookApiClient()) { }
+
+        public BookController(IBookApiClient bookApiClient)
+        {
+            if(bookApiClient ==  null)
+                throw new ArgumentNullException(nameof(bookApiClient));
+
+            this.bookApiClient = bookApiClient;
+        }
 
         // GET: Book
         public ActionResult Index()
