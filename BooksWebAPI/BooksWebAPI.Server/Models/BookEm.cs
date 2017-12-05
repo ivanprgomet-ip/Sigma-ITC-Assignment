@@ -16,17 +16,17 @@ namespace BooksWebAPI.Server.Models
     {
         [XmlAttribute("id")]
         public string Id { get; set; }
-        [XmlAttribute("author")]
+        [XmlElement("author")]
         public string Author { get; set; }
-        [XmlAttribute("title")]
+        [XmlElement("title")]
         public string Title { get; set; }
-        [XmlAttribute("genre")]
+        [XmlElement("genre")]
         public string Genre { get; set; }
-        [XmlAttribute("price")]
+        [XmlElement("price")]
         public decimal Price { get; set; }
-        [XmlAttribute("publish_date")]
+        [XmlElement("publish_date")]
         public DateTime PublishDate { get; set; }
-        [XmlAttribute("description")]
+        [XmlElement("description")]
         public string Description { get; set; }
     }
 }

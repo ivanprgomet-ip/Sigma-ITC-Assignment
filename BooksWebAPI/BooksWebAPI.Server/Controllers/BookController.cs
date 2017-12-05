@@ -25,7 +25,7 @@ namespace BooksWebAPI.Server.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("getbybookid/{id}")]
         public object GetByBookId(string id)
         {
             var result = bookRepo.GetBookById(id);
