@@ -25,7 +25,7 @@ namespace BooksWebAPI.Server.Controllers
         }
 
         [HttpGet]
-        [Route("getbybookid/{id}")]
+        //[Route("getbybookid/{id}")]
         public object GetByBookId(string id)
         {
             var em = bookRepo.GetSingleById(id);
@@ -36,10 +36,10 @@ namespace BooksWebAPI.Server.Controllers
         }
 
         [HttpGet]
-        [Route("getbybooktitle/{title}")]
-        public object GetByBookTitle(string title) // todo: why does it only work with id parameter
+        //[Route("getbybooktitle/{title}")]
+        public object GetByBookTitle(string id) // todo: why does it only work with id parameter
         {
-            var em = bookRepo.GetAllByTitleString(title);
+            var em = bookRepo.GetAllByTitleString(id);
 
             if (em.Count == 0)
                 return new HttpNotFoundResult("Sorry, but there are no books that match the title string...");
