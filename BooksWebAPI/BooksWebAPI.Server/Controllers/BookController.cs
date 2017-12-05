@@ -3,7 +3,9 @@ using BooksWebAPI.Server.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
+using System.Net.Http;
 using System.Web.Mvc;
 
 namespace BooksWebAPI.Server.Controllers
@@ -22,23 +24,32 @@ namespace BooksWebAPI.Server.Controllers
             this.bookRepo = bookRepo;
         }
 
-        public ActionResult Index()
+        [HttpGet]
+        [Route("{id}")]
+        public object GetByBookId(string id)
         {
-            return View();
+            var result = bookRepo.GetBookById(id);
+            if (result != null)
+            {
+                return result.Description;
+            }
+            else
+            {
+                return new HttpNotFoundResult("Sorry, the book could not be found...");
+            }
+                
         }
 
-        // search for book(s) by title
-            // shall find books where only a part of the title might be the search word
-
-        //public ActionResult GetByBookTitle(string title)
+        //[HttpGet]
+        //[Route("getBooksByTitle/{title}")]
+        //public object GetByBookTitle(string title)
         //{
 
         //}
 
-        //public ActionResult GetByBookId(string id)
-        //{
 
-        //}
+
+
 
     }
 }

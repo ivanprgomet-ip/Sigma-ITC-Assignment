@@ -6,6 +6,7 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Hosting;
 using System.Xml.Serialization;
 
 namespace BooksWebAPI.Server.Repositories
@@ -18,14 +19,14 @@ namespace BooksWebAPI.Server.Repositories
         {
             #region deserialize books xml file
 
-            string xmlSourcePath = ConfigurationManager.AppSettings["sourcePath"];
+            string xmlSourcePath = ConfigurationManager.AppSettings["XmlSourcePath"];
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(CatalogEm));
 
-            using (var reader = new StreamReader(xmlSourcePath))
+            using (var reader = new StreamReader(HostingEnvironment.MapPath("~/App_Data/books.xml")))
             {
                 Catalog = (CatalogEm)xmlSerializer.Deserialize(reader);
-            } 
+            }
 
             #endregion
         }
