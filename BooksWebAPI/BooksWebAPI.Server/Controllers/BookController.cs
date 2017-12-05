@@ -31,7 +31,7 @@ namespace BooksWebAPI.Server.Controllers
             var result = bookRepo.GetBookById(id);
             if (result != null)
             {
-                return result.Description;
+                return result;
             }
             else
             {

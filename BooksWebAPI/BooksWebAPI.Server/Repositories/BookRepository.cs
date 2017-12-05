@@ -19,13 +19,11 @@ namespace BooksWebAPI.Server.Repositories
         {
             #region deserialize books xml file
 
-            string xmlSourcePath = ConfigurationManager.AppSettings["XmlSourcePath"];
-
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(CatalogEm));
 
-            using (var reader = new StreamReader(HostingEnvironment.MapPath("~/App_Data/books.xml")))
+            using (var reader = new StreamReader(HostingEnvironment.MapPath(@"~/App_Data/books.xml")))
             {
-                Catalog = (CatalogEm)xmlSerializer.Deserialize(reader);
+                Catalog = (CatalogEm)xmlSerializer.Deserialize(reader);// TODO: why getting all null values except the Id property?
             }
 
             #endregion
