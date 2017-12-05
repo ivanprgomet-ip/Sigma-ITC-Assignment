@@ -14,7 +14,7 @@ namespace BooksWebAPI.Server.Controllers
     {
         private IBookRepository bookRepo;
 
-        public BookController():this(new BookRepository()) { }
+        public BookController() : this(new BookRepository()) { }
 
         public BookController(IBookRepository bookRepo)
         {
@@ -28,33 +28,23 @@ namespace BooksWebAPI.Server.Controllers
         [Route("getbybookid/{id}")]
         public object GetByBookId(string id)
         {
-            var em = bookRepo.GetBookById(id);
+            var em = bookRepo.GetSingleById(id);
             if (em != null)
-            {
                 return em;
-            }
             else
-            {
                 return new HttpNotFoundResult("Sorry, the book could not be found...");
-            }
-                
         }
 
         [HttpGet]
         [Route("getbybooktitle/{title}")]
-        public object GetByBookTitle(string title)
+        public object GetByBookTitle(string title) // todo: why does it only work with id parameter
         {
-            var em = bookRepo.GetBooksByTitleString(title);
+            var em = bookRepo.GetAllByTitleString(title);
 
             if (em.Count == 0)
                 return new HttpNotFoundResult("Sorry, but there are no books that match the title string...");
             else
                 return em;
         }
-
-
-
-
-
     }
 }

@@ -29,14 +29,14 @@ namespace BooksWebAPI.Server.Repositories
             #endregion
         }
 
-        public BookEm GetBookById(string id)
+        public BookEm GetSingleById(string id)
         {
             BookEm retrieved = Catalog.Books.Where(b => b.Id == id).FirstOrDefault();
 
             return retrieved == null ? null : retrieved;
         }
 
-        public List<BookEm> GetBooksByTitleString(string title)
+        public List<BookEm> GetAllByTitleString(string title)
         {
             return Catalog.Books.Where(b => b.Title.Contains(title)).ToList();
         }
