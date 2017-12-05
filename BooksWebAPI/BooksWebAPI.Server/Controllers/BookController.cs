@@ -37,7 +37,7 @@ namespace BooksWebAPI.Server.Controllers
 
         [HttpGet]
         //[Route("getbybooktitle/{title}")]
-        public object GetByBookTitle(string id) // todo: why does it only work with id parameter
+        public object GetByBookTitle(string id) // TODO: why does it only work with id parameter
         {
             var em = bookRepo.GetAllByTitleString(id);
 
