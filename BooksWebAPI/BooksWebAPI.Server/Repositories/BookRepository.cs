@@ -16,7 +16,7 @@ namespace BooksWebAPI.Server.Repositories
 
         public BookRepository()
         {
-            #region de-serializing books.xml
+            #region deserialize books xml file
 
             string xmlSourcePath = ConfigurationManager.AppSettings["sourcePath"];
 
