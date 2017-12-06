@@ -6,11 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Net.Http;
-using System.Web.Mvc;
+//using System.Web.Mvc;
+using System.Web.Http;
 
 namespace BooksWebAPI.Server.Controllers
 {
-    public class BookController : Controller
+    public class BookController : ApiController
     {
         private IBookRepository bookRepo;
 
@@ -24,7 +25,7 @@ namespace BooksWebAPI.Server.Controllers
             this.bookRepo = bookRepo;
         }
 
-        [HttpGet]
+        [System.Web.Http.HttpGet]
         //[Route("getbybookid/{id}")]
         public object GetByBookId(string id)
         {
@@ -32,17 +33,17 @@ namespace BooksWebAPI.Server.Controllers
             if (em != null)
                 return em;
             else
-                return new HttpNotFoundResult("Sorry, the book could not be found...");
+                return Content(HttpStatusCode.NotFound, "could not find the book");
         }
 
-        [HttpGet]
+        [System.Web.Http.HttpGet]
         //[Route("getbybooktitle/{title}")]
         public object GetByBookTitle(string id) // TODO: why does it only work with id parameter
         {
             var em = bookRepo.GetAllByTitleString(id);
 
             if (em.Count == 0)
-                return new HttpNotFoundResult("Sorry, but there are no books that match the title string...");
+                return Content(HttpStatusCode.NotFound, "could not find any bok that matched the title string");
             else
                 return em;
         }
