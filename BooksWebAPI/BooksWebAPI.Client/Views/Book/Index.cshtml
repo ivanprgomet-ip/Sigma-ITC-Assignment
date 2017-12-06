@@ -1,24 +1,87 @@
 ﻿@model List<BooksWebAPI.Client.Models.BookVm>
 
 @{
-    ViewBag.Title = "Sigma ITC Assignment";
+    ViewBag.Title = "Sigma Itc - Ivan Prgomet";
 }
 
-<div>
-    @using (Html.BeginForm("GetByTitle", "Book"))
-    {
-        <input type="text" name="title" placeholder="Enter title" />
-        <input id="btnTitle" type="submit" value="Search by title" />
-    }
-</div>
+@using (Html.BeginForm("GetById", "Book"))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Search by Book Id</h4>
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="form-control input-sm" name="id" placeholder="Search" />
 
-<div>
-    @using (Html.BeginForm("GetById", "Book"))
-    {
-        <input type="text" name="id" placeholder="Enter Id" />
-        <input id="btnId" type="submit" value="Search by Id" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-info btn-sm" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("GetByTitle", "Book"))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Search by Book title</h4>
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="form-control input-sm" name="title" placeholder="Search" />
+
+                        <span class="input-group-btn">
+                            <button class="btn btn-info btn-sm" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<style>
+    #custom-search-input {
+        padding: 3px;
+        border: solid 1px #E4E4E4;
+        border-radius: 6px;
+        background-color: #fff;
     }
-</div>
+
+        #custom-search-input input {
+            border: 0;
+            box-shadow: none;
+        }
+
+        #custom-search-input button {
+            margin: 2px 0 0 0;
+            background: none;
+            box-shadow: none;
+            border: 0;
+            color: #666666;
+            padding: 0 8px 0 10px;
+            border-left: solid 1px #ccc;
+        }
+
+            #custom-search-input button:hover {
+                border: 0;
+                box-shadow: none;
+                border-left: solid 1px #ccc;
+            }
+
+        #custom-search-input .glyphicon-search {
+            font-size: 23px;
+        }
+</style>
 
 
 <div class="row">
