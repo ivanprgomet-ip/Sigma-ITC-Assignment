@@ -46,7 +46,7 @@ namespace BooksWebAPI.Server.Controllers
             var em = bookRepo.GetAllByTitleString(title);
 
             if (em.Count == 0)
-                return Content(HttpStatusCode.NotFound, "could not find any bok that matched the title string");
+                return NotFound();
             else
                 return Ok(em);
         }
