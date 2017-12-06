@@ -7,10 +7,7 @@ using System.Xml.Serialization;
 namespace BooksWebAPI.Server.Models
 {
     /// <summary>
-    /// The Entity Model for a Book object. 
-    /// The xml attributes for the properties are there to follow the convention of 
-    /// lower case letters for xml elements, just like in the books.xml file that was retrieved 
-    /// from Sigma ITC.
+    /// The Entity Model for a Book object.
     /// </summary>
     public class BookEm
     {
