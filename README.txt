@@ -14,10 +14,10 @@ How to use explained in steps:
 Step 1. Download ZIP file for the project, un-zip and open the solution in the latest Visual Studio Editor.
 Step 2. Before running the application, set the BooksWebAPI.Client project as Startup project inside of Visual Studio (if its not already set by default)
 Step 3. Run the application (Ctrl + F5) with Google Chrome set as the pre-selected web browser
-Step 4. On the displayed page you should be able to see a Search section consisting of two search boxes and a Results section where the retrieved results will be. 
+Step 4. On the displayed page you should be able to see a Search section consisting of three search boxes and a Results section where the retrieved results will be. 
 Step 5. Try to search for a book by entering in "B5" in the first search box (id) and you should get the book with the id of "B5".  
-You can also try to search book(s) by title in the second search box by entering for example "Ruby", and finally use the last searchbox and enter for example 
-"Computer" or "Fantasy" and you should get the books with the corresponding genres.
+You can also try to search book(s) by title in the second search box by entering for example "Ruby", and finally try the last searchbox and enter for example 
+"Computer" or "Fantasy" and you should get the books with the corresponding genres. Note that the searchboxes are case sensitive at the moment.
 
 
 ___________________________________________________________________________________________________________
