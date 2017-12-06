@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace BooksWebAPI.Server.Controllers
 {
+    [RoutePrefix("api/books")]
     public class BookController : ApiController
     {
         private IBookRepository bookRepo;
@@ -27,7 +28,7 @@ namespace BooksWebAPI.Server.Controllers
 
         [System.Web.Http.HttpGet]
         [System.Web.Http.AcceptVerbs("GET")]
-        [Route("Book/GetByBookId/{id}")]
+        [Route("GetByBookId/{id}")]
         public IHttpActionResult GetByBookId(string id)
         {
             var em = bookRepo.GetSingleById(id);
@@ -39,7 +40,7 @@ namespace BooksWebAPI.Server.Controllers
 
         [System.Web.Http.HttpGet]
         [System.Web.Http.AcceptVerbs("GET")]
-        [Route("Book/GetByBookTitle/{id}")]
+        [Route("GetByBookTitle/{id}")]
         public IHttpActionResult GetByBookTitle(string id) // TODO: why does it only work with id parameter
         {
             var em = bookRepo.GetAllByTitleString(id);
