@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
 }
 
@@ -48,3 +48,25 @@ textarea {
     #custom-search-input .glyphicon-search {
         font-size: 23px;
     }
+
+
+    /*CUSTOM STYLING*/
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+/*body {
+    font-family: 'Noto Sans TC', sans-serif;
+}*/
+
+/*.list li {
+    padding-bottom: 10px;
+}*/
+
+.table > thead > tr > th,
+.table > thead > tr > td {
+    background: #fcf8e3;
+    border-bottom: 0;
+}
+
+/*.pr10 {
+    padding-right: 10px;
+}*/

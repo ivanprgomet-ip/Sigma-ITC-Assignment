@@ -4,16 +4,18 @@
     ViewBag.Title = "Sigma Itc - Ivan Prgomet";
 }
 
+
+<h1 class="page-header">Search</h1>
+
 <div class="container">
     <div class="row">
 
         @using (Html.BeginForm("GetById", "Book"))
         {
             <div class="col-md-6">
-                <h4>Search by Book Id</h4>
                 <div id="custom-search-input">
                     <div class="input-group col-md-12">
-                        <input type="text" class="form-control input-sm" name="id" placeholder="Search" />
+                        <input type="text" class="form-control input-lg" name="id" placeholder="Search book by id" />
 
                         <span class="input-group-btn">
                             <button class="btn btn-info btn-sm" type="submit">
@@ -29,10 +31,9 @@
         @using (Html.BeginForm("GetByTitle", "Book"))
         {
             <div class="col-md-6">
-                <h4>Search by Book title</h4>
                 <div id="custom-search-input">
                     <div class="input-group col-md-12">
-                        <input type="text" class="form-control input-sm" name="title" placeholder="Search" />
+                        <input type="text" class="form-control input-lg" name="title" placeholder="Search book(s) by title" />
 
                         <span class="input-group-btn">
                             <button class="btn btn-info btn-sm" type="submit">
@@ -49,46 +50,91 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-primary list-panel" id="list-panel">
-            <div class="panel-heading list-panel-heading">
-                <h1 class="panel-title list-panel-title">Result</h1>
-            </div>
-            <div class="panel-body">
-                <table id="assets-data-table"
-                       class="table table-striped table-bordered"
-                       style="width: 100%">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Description</th>
-                            <th>Genre</th>
-                            <th>Published</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if (Model != null)
-                        {
-                            foreach (var book in Model)
-                            {
+
+
+
+
+
+
+
+
+
+    <h1 class="page-header">Results</h1>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <td> Id </td>
+                <td> Title </td>
+                <td> Author</td>
+                <td> Description</td>
+                <td> Genre</td>
+                <td> Published</td>
+                <td> Price</td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Id</td>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Description</td>
+                        <td>@book.Genre</td>
+                        <td>@book.PublishDate.ToString("dd MMMM yyyy")</td>
+                        <td>@book.Price</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+
+
+
+
+    @*<div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary list-panel" id="list-panel">
+                    <div class="panel-heading list-panel-heading">
+                        <h1 class="panel-title list-panel-title">Result</h1>
+                    </div>
+                    <div class="panel-body">
+                        <table id="assets-data-table"
+                               class="table table-striped table-bordered"
+                               style="width: 100%">
+                            <thead>
                                 <tr>
-                                    <td>@book.Id</td>
-                                    <td>@book.Title</td>
-                                    <td>@book.Author</td>
-                                    <td>@book.Description</td>
-                                    <td>@book.Genre</td>
-                                    <td>@book.PublishDate.ToString("dd MMMM yyyy")</td>
-                                    <td>@book.Price</td>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Description</th>
+                                    <th>Genre</th>
+                                    <th>Published</th>
+                                    <th>Price</th>
                                 </tr>
-                            }
-                        }
-                    </tbody>
-                </table>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var book in Model)
+                                    {
+                                        <tr>
+                                            <td>@book.Id</td>
+                                            <td>@book.Title</td>
+                                            <td>@book.Author</td>
+                                            <td>@book.Description</td>
+                                            <td>@book.Genre</td>
+                                            <td>@book.PublishDate.ToString("dd MMMM yyyy")</td>
+                                            <td>@book.Price</td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
+        </div>*@
