@@ -24,7 +24,7 @@ namespace BooksWebAPI.Client.Helpers
         public async Task<BookVm> GetBookById(string id)
         {
             BookVm result = null;
-            var response = await client.GetAsync("api/books/" + id);
+            var response = await client.GetAsync("Book/GetByBookId/" + id);
 
             if(response.IsSuccessStatusCode)
             {
