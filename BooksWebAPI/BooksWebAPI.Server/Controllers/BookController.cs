@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Net.Http;
-//using System.Web.Mvc;
 using System.Web.Http;
 
 namespace BooksWebAPI.Server.Controllers
@@ -41,7 +40,7 @@ namespace BooksWebAPI.Server.Controllers
         [System.Web.Http.HttpGet]
         [System.Web.Http.AcceptVerbs("GET")]
         [Route("GetByBookTitle/{title}")]
-        public IHttpActionResult GetByBookTitle(string title) // TODO: why does it only work with id parameter
+        public IHttpActionResult GetByBookTitle(string title)
         {
             var em = bookRepo.GetAllByTitleString(title);
 

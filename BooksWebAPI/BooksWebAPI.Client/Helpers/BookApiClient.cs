@@ -11,7 +11,7 @@ using System.Web;
 
 namespace BooksWebAPI.Client.Helpers
 {
-    public class BookApiClient: IBookApiClient
+    public class BookApiClient : IBookApiClient
     {
         private HttpClient client;
 
@@ -26,7 +26,7 @@ namespace BooksWebAPI.Client.Helpers
             BookVm result = null;
             var response = await client.GetAsync("api/books/GetByBookId/" + id);
 
-            if(response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 var stream = await response.Content.ReadAsStreamAsync();
                 using (var reader = new StreamReader(stream))
@@ -39,7 +39,18 @@ namespace BooksWebAPI.Client.Helpers
 
         public async Task<List<BookVm>> GetBooksByTitle(string title)
         {
-            throw new NotImplementedException();
+            List<BookVm> apiResult = new List<BookVm>();
+            var response = await client.GetAsync("api/books/GetByBookTitle/" + title);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var stream = await response.Content.ReadAsStreamAsync();
+                using (var reader = new StreamReader(stream))
+                {
+                    apiResult = JsonConvert.DeserializeObject<List<BookVm>>(reader.ReadToEnd());
+                }
+            }
+            return apiResult;
         }
     }
 }

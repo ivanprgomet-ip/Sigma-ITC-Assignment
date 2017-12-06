@@ -33,7 +33,10 @@ namespace BooksWebAPI.Client.Controllers
         [HttpPost]
         public async Task<ActionResult> GetByTitle(string title)
         {
-            throw new NotImplementedException();
+            List<BookVm> result = await bookApiClient.GetBooksByTitle(title);
+
+            return View("Index", result);
+
         }
 
         [HttpPost]
