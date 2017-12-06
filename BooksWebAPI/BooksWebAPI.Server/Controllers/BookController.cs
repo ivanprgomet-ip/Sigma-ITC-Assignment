@@ -26,26 +26,28 @@ namespace BooksWebAPI.Server.Controllers
         }
 
         [System.Web.Http.HttpGet]
-        //[Route("getbybookid/{id}")]
-        public object GetByBookId(string id)
+        [System.Web.Http.AcceptVerbs("GET")]
+        [Route("Book/GetByBookId/{id}")]
+        public IHttpActionResult GetByBookId(string id)
         {
             var em = bookRepo.GetSingleById(id);
             if (em != null)
-                return em;
+                return Ok(em);
             else
-                return Content(HttpStatusCode.NotFound, "could not find the book");
+                return NotFound();
         }
 
         [System.Web.Http.HttpGet]
-        //[Route("getbybooktitle/{title}")]
-        public object GetByBookTitle(string id) // TODO: why does it only work with id parameter
+        [System.Web.Http.AcceptVerbs("GET")]
+        [Route("Book/GetByBookTitle/{id}")]
+        public IHttpActionResult GetByBookTitle(string id) // TODO: why does it only work with id parameter
         {
             var em = bookRepo.GetAllByTitleString(id);
 
             if (em.Count == 0)
                 return Content(HttpStatusCode.NotFound, "could not find any bok that matched the title string");
             else
-                return em;
+                return Ok(em);
         }
     }
 }
