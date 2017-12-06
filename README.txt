@@ -19,7 +19,8 @@ Step 5. Try to search for a book by entering in "B5" in the first search box (id
 You can also try to search book(s) by title in the second search box by entering for example "Ruby", and finally try the last searchbox and enter for example 
 "Computer" or "Fantasy" and you should get the books with the corresponding genres. Note that the searchboxes are case sensitive at the moment.
 
-
+NOTE: If you would to experience any errors or exceptions when trying to retrieve book data from the api, try to first run the BooksWebAPI.Server project with Ctrl+F5 from visual studio once, 
+and then try to run the BooksWebAPI.Client again.
 ___________________________________________________________________________________________________________
 Assesment of requirements summary:
 * Transparency
