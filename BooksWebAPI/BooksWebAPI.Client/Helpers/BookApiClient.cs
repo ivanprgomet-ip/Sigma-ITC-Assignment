@@ -37,6 +37,22 @@ namespace BooksWebAPI.Client.Helpers
             return apiResult;
         }
 
+        public async Task<List<BookVm>> GetBooksByGenre(string genre)
+        {
+            List<BookVm> apiResult = new List<BookVm>();
+            var response = await client.GetAsync("api/books/GetByBookGenre/" + genre);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var stream = await response.Content.ReadAsStreamAsync();
+                using (var reader = new StreamReader(stream))
+                {
+                    apiResult = JsonConvert.DeserializeObject<List<BookVm>>(reader.ReadToEnd());
+                }
+            }
+            return apiResult;
+        }
+
         public async Task<List<BookVm>> GetBooksByTitle(string title)
         {
             List<BookVm> apiResult = new List<BookVm>();

@@ -49,5 +49,18 @@ namespace BooksWebAPI.Server.Controllers
             else
                 return Ok(em);
         }
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.AcceptVerbs("GET")]
+        [Route("GetByBookGenre/{genre}")]
+        public IHttpActionResult GetByBookGenre(string genre)
+        {
+            var em = bookRepo.GetAllByGenreString(genre);
+
+            if (em.Count == 0)
+                return NotFound();
+            else
+                return Ok(em);
+        }
     }
 }

@@ -36,7 +36,6 @@ namespace BooksWebAPI.Client.Controllers
             List<BookVm> result = await bookApiClient.GetBooksByTitle(title);
 
             return View("Index", result);
-
         }
 
         [HttpPost]
@@ -48,6 +47,14 @@ namespace BooksWebAPI.Client.Controllers
                 return View("Index", new List<BookVm> { result });
 
             return View("Index");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> GetByGenre(string genre)
+        {
+            var result = await bookApiClient.GetBooksByGenre(genre);
+
+            return View("Index", result);
         }
     }
 }

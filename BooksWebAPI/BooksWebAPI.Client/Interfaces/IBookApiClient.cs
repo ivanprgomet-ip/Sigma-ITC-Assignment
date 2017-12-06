@@ -11,5 +11,6 @@ namespace BooksWebAPI.Client.Interfaces
     {
         Task<List<BookVm>> GetBooksByTitle(string title);
         Task<BookVm> GetBookById(string id);
+        Task<List<BookVm>> GetBooksByGenre(string genre);
     }
 }

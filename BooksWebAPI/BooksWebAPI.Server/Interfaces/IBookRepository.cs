@@ -10,6 +10,7 @@ namespace BooksWebAPI.Server.Interfaces
     public interface IBookRepository
     {
         List<BookEm> GetAllByTitleString(string title);
+        List<BookEm> GetAllByGenreString(string genre);
         BookEm GetSingleById(string id);
     }
 }

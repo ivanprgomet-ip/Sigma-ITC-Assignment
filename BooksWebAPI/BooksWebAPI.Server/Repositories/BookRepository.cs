@@ -40,5 +40,10 @@ namespace BooksWebAPI.Server.Repositories
         {
             return Catalog.Books.Where(b => b.Title.Contains(title)).ToList();
         }
+
+        public List<BookEm> GetAllByGenreString(string genre)
+        {
+            return Catalog.Books.Where(b => b.Genre == genre).ToList();
+        }
     }
 }
