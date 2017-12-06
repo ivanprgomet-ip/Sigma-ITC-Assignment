@@ -50,7 +50,7 @@ textarea {
     }
 
 
-    /*CUSTOM STYLING*/
+/*CUSTOM STYLING*/
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 /*body {
@@ -66,6 +66,14 @@ textarea {
     background: #fcf8e3;
     border-bottom: 0;
 }
+header {
+    background: #7BD08D;
+    padding: 50px 0;
+}
+
+    header h1 {
+        color: #fff;
+    }
 
 /*.pr10 {
     padding-right: 10px;
