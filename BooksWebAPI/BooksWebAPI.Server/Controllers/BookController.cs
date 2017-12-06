@@ -40,10 +40,10 @@ namespace BooksWebAPI.Server.Controllers
 
         [System.Web.Http.HttpGet]
         [System.Web.Http.AcceptVerbs("GET")]
-        [Route("GetByBookTitle/{id}")]
-        public IHttpActionResult GetByBookTitle(string id) // TODO: why does it only work with id parameter
+        [Route("GetByBookTitle/{title}")]
+        public IHttpActionResult GetByBookTitle(string title) // TODO: why does it only work with id parameter
         {
-            var em = bookRepo.GetAllByTitleString(id);
+            var em = bookRepo.GetAllByTitleString(title);
 
             if (em.Count == 0)
                 return Content(HttpStatusCode.NotFound, "could not find any bok that matched the title string");
