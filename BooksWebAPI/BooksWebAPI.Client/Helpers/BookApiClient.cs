@@ -23,7 +23,7 @@ namespace BooksWebAPI.Client.Helpers
 
         public async Task<BookVm> GetBookById(string id)
         {
-            BookVm result = null;
+            BookVm apiResult = null;
             var response = await client.GetAsync("api/books/GetByBookId/" + id);
 
             if (response.IsSuccessStatusCode)
@@ -31,10 +31,10 @@ namespace BooksWebAPI.Client.Helpers
                 var stream = await response.Content.ReadAsStreamAsync();
                 using (var reader = new StreamReader(stream))
                 {
-                    result = JsonConvert.DeserializeObject<BookVm>(reader.ReadToEnd());
+                    apiResult = JsonConvert.DeserializeObject<BookVm>(reader.ReadToEnd());
                 }
             }
-            return result;
+            return apiResult;
         }
 
         public async Task<List<BookVm>> GetBooksByTitle(string title)
