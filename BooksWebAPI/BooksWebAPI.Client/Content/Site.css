@@ -51,15 +51,9 @@ textarea {
 
 
 /*CUSTOM STYLING*/
-@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
-
-/*body {
-    font-family: 'Noto Sans TC', sans-serif;
-}*/
-
-/*.list li {
-    padding-bottom: 10px;
-}*/
+h1,h2 {
+    font-family: 'Noto Sans', sans-serif;
+}
 
 .table > thead > tr > th,
 .table > thead > tr > td {
@@ -74,7 +68,3 @@ header {
     header h1 {
         color: #fff;
     }
-
-/*.pr10 {
-    padding-right: 10px;
-}*/
